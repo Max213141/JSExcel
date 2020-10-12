@@ -39,6 +39,19 @@ class Dom {
         }
         return this // для возможности продолжать делать чейн
     }
+
+    get data() {
+        return this.$el.dataset
+    }
+
+    closest(selector) {
+        return $(this.$el.closest(selector))
+    }
+
+    getCoords() {
+        return this.$el.getBoundingClientRect()
+    }
+
 }
 
 export function $(selector) {
