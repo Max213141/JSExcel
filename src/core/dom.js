@@ -33,8 +33,10 @@ class Dom {
         }
 
         if (Element.prototype.append) {
+            // eslint-disable-next-line max-len
             this.$el.append(node) // Если метод append присутствует в элементе то используем его
         } else {
+            // eslint-disable-next-line max-len
             this.$el.appendChild(node) // Append работает не с классом DOM а с нативными элементами поэтому надо добавить .$el
         }
         return this // для возможности продолжать делать чейн
@@ -51,7 +53,17 @@ class Dom {
     getCoords() {
         return this.$el.getBoundingClientRect()
     }
+    findAll(selector) {
+        return this.$el.querySelectorAll(selector)
+    }
 
+    css( styles ={}) {
+        Object
+            .keys(styles)
+            .forEach(key => {
+            this.$el.style[key] = styles[key]
+        })
+    }
 }
 
 export function $(selector) {
