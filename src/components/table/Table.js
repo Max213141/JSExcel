@@ -49,6 +49,7 @@ export class Table extends ExcelComponent {
                 this.selection.select($target)
            }
         }
+
     }
 
     onKeydown(event) {
