@@ -13,6 +13,10 @@ class Dom {
         return this.$el.outerHTML.trim()// Hard to understand
     }
 
+    text(text) {
+        this.$el.textContent = text
+    }
+
     clear() {
         this.html('')
         return this
@@ -67,6 +71,22 @@ class Dom {
             .forEach(key => {
             this.$el.style[key] = styles[key]
         })
+    }
+
+    id(parse) {
+        if(parse) {
+            const parsed = this.id().split(':')
+            return {
+                row: +parsed[0],
+                col: +parsed[1]
+            }
+        }
+        return this.data.id
+    }
+
+    focus() {
+        this.$el.focus()
+        return this
     }
 
     addClass(className) {
