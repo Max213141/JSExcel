@@ -14,7 +14,9 @@
     "eol-last": "off",
     "quotes": "off",
     "indent": "off",
-    "operator-linebreak": "off"
+    "operator-linebreak": "off",
+    "max-len": "off",
+    "brace-style": "off"
   },
   "extends": ["eslint:recommended", "google"]
 }
