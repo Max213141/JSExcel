@@ -1,7 +1,6 @@
 import {DomListener} from '@core/Domlistener';
 
 export class ExcelComponent extends DomListener {
-
   constructor($root, options = {}) {
     super($root, options.listeners);
     this.name = options.name || ''
@@ -11,7 +10,7 @@ export class ExcelComponent extends DomListener {
 
     this.prepare()
   }
-  //Настраиваем компонент до init
+  // Настраиваем компонент до init
   prepare() {}
 
   // Return Template of the component
@@ -20,24 +19,24 @@ export class ExcelComponent extends DomListener {
   }
 
 
-  //уведомляем слушателей про событие event
+  // уведомляем слушателей про событие event
   $emit(event, ...args) {
     this.emitter.emit(event, ...args)
   }
-  //Подписываемся на событие event
+  // Подписываемся на событие event
   $on(event, fn) {
     const unsub = this.emitter.subscribe(event, fn)
     this.unsubscribers.push(unsub)
   }
 
-  //Инициализация компонента
-  //добавление DOM компонентов
+  // Инициализация компонента
+  // добавление DOM компонентов
   init() {
     this.initDOMListeners()
   }
 
-  //удаляем компонент
-  //Читстим слушатели
+  // удаляем компонент
+  // Читстим слушатели
   destroy() {
     this.removeDOMListeners()
     this.unsubscribers.forEach( unsub => unsub())
