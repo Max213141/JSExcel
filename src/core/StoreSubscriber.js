@@ -26,6 +26,6 @@ export class StoreSubscriber {
     }
 
     unsubscribeFromStore() {
-        this.sub.unsubscride()
+        this.sub.unsubscribe()
     }
 }
